@@ -1,0 +1,19 @@
+<app-snap-slider
+  label="Tempo"
+  [type]="typeMinutes"
+  measure="minutos"
+  [min]="60"
+  [max]="600"
+  [value]="(sharedData | async)?.timerSettings?.whiteTime"
+  [updateModel]="updateWhiteTime"
+></app-snap-slider>
+
+<app-snap-slider
+  label="Incremento"
+  [type]="typeSeconds"
+  measure="segundos"
+  [min]="0"
+  [max]="10"
+  [value]="(sharedData | async)?.timerSettings?.whiteIncrement"
+  [updateModel]="updateWhiteIncrement"
+></app-snap-slider>

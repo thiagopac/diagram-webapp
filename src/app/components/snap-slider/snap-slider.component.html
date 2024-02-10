@@ -1,0 +1,27 @@
+<div style="text-align: center">
+  <p style="text-align: center; margin: 0">
+    {{ label }}:
+    <span
+      #span
+      contenteditable
+      (blur)="onValueChange($event)"
+      (keypress)="onKeyPress($event)"
+      >{{ type === "minutes" ? Math.round(myValue / 60) : myValue }}
+      {{
+        myValue === 1 || Math.round(myValue / 60) === 1
+          ? measure.substring(0, measure.length - 1)
+          : measure
+      }}</span
+    >
+  </p>
+  <mat-slider
+    style="width: 100%"
+    showTickMarks
+    [min]="min"
+    [max]="max"
+    [value]="value"
+    [(ngModel)]="myValue"
+    (input)="setMyValue($event)"
+    (change)="handleChange($event)"
+  ></mat-slider>
+</div>

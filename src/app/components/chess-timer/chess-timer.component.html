@@ -1,0 +1,13 @@
+<div style="display: inline-flex;" [ngStyle]="{'flex-direction': flexDirection}">
+  <app-player-list *ngrxLet="blackNames; let bNames" [players]="bNames" [currentId]="currentId | async" [nextId]="nextId | async"></app-player-list>
+  <!-- <p style="font-size:1em">I AM: {{myName | async}}</p>
+  <p style="font-size:1em">CurrentTurn: {{currentTurn | async}}</p> -->
+  <p class="time">{{blackTime | async | chessTimerFormat}}</p>
+  <div *ngIf="(currentStatus | async) != ''" class="result-container">
+    <p class="final-result" style="width:100%">{{currentStatus | async}}</p>
+    <app-analyse-button style="width:100%"></app-analyse-button>
+    <app-rematch-button style="width:100%"></app-rematch-button>
+  </div>
+  <p class="time">{{whiteTime | async | chessTimerFormat}}</p>
+  <app-player-list *ngrxLet="whiteNames; let wNames" [players]="wNames" [currentId]="currentId | async" [nextId]="nextId | async"></app-player-list>
+</div>

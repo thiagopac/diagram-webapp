@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-10">
+    <h2 mat-dialog-title>Novo jogo</h2>
+  </div>
+  <div class="col-2 text-end">
+    <button
+      matInput
+      class="close-button border-0 bg-white mb-5"
+      tabindex="-1"
+      [mat-dialog-close]="true"
+    >
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
+  </div>
+</div>
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-12 text-center">
+      <p>Jogar de</p>
+      <mat-button-toggle-group [(ngModel)]="side">
+        <mat-button-toggle [value]="ColorSide.white" class="p-3">
+          <img width="80" src="/assets/images/pieces/merida/wK.svg" />
+        </mat-button-toggle>
+        <mat-button-toggle [value]="ColorSide.black" class="p-3">
+          <img width="80" src="/assets/images/pieces/merida/bK.svg" />
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 my-5">
+      <app-timer-config
+        (timerSettingsUpdated)="updateTimerSettings($event)"
+      ></app-timer-config>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" class="btn">Cancelar</button>
+  <button
+    mat-button
+    cdkFocusInitial
+    class="btn btn-dark"
+    (click)="setOptions()"
+  >
+    Criar partida
+  </button>
+</mat-dialog-actions>

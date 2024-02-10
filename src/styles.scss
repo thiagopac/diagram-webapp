@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  // https://stackoverflow.com/questions/37754542/css-calc-round-down-with-two-decimal-cases/64921523#64921523
+  --shf: 4.9406564584124654e-324;
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@function floorToEight($v) {
+  @return calc((#{$v}) / 8 * var(--shf) / var(--shf) * 8);
+}
+
+div#chessground-examples {
+  width: #{floorToEight(min(80vh, 72vw))};
+  max-width: 896px;
+  max-height: 896px;
+}
+
+section {
+  height: 0;
+  padding-bottom: 100%;
+  display: block;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  div#chessground-examples {
+    width: #{floorToEight(min(100vh, 100vw))};
+  }
+}

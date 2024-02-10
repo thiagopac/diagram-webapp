@@ -1,0 +1,13 @@
+<ul>
+  <li
+    *ngFor="let id of playerIds"
+    [attr.data-text]="playersNotNull[id].name"
+    [class.bold]="id == currentId"
+    [style.color]="playersNotNull[id].properties.color"
+    [style.text-decoration]="
+      id == nextId || id == currentId ? 'underline' : 'none'
+    "
+  >
+    {{ playersNotNull[id].name }}
+  </li>
+</ul>

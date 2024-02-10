@@ -1,0 +1,25 @@
+p {
+  margin: 0;
+  width: 100%;
+}
+
+p.time {
+  line-height: 50px;
+  font-size: 50px;
+}
+
+.result-container {
+  margin-bottom: 1em;
+}
+
+.result-container p {
+  line-height: 30px;
+}
+
+p.final-result {
+  font-size:20px;
+}
+
+app-player-list {
+  max-width: 20em;
+}

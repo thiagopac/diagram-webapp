@@ -1,0 +1,9 @@
+<main>
+  <div>
+    <ngx-chessground class="is2d" #chess></ngx-chessground>
+  </div>
+
+  <app-chess-timer [inverted]="myTeam === 'black'"></app-chess-timer>
+  <button (click)="resign()">Abandonar</button>
+  <button (click)="flip()">Inverter</button>
+</main>

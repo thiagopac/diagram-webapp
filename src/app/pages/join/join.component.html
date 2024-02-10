@@ -1,0 +1,16 @@
+<form [formGroup]="fg">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" hidden />
+    <input matInput formControlName="properties" hidden />
+  </mat-form-field>
+  <div style="text-align: center">
+    <app-loading-button
+      text="Join Game"
+      (click)="joinGameIfValid()"
+      [loading]="loading"
+      #myButton
+    ></app-loading-button>
+  </div>
+</form>
+<div *ngIf="err != ''">{{ err }}</div>

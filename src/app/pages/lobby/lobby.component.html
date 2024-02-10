@@ -1,0 +1,21 @@
+<app-textarea-selectall
+  *ngIf="multiplayerGame"
+  [text]="url"
+></app-textarea-selectall>
+
+<app-timer-config></app-timer-config>
+
+<div class="flex-container">
+  <div class="flex-child">
+    <app-team-selection-panel [team]="'white'"></app-team-selection-panel>
+  </div>
+
+  <div class="flex-child">
+    <app-team-selection-panel [team]="'black'"></app-team-selection-panel>
+  </div>
+</div>
+<div style="text-align: center; padding-top: 10px">
+  <button mat-stroked-button (click)="startGame()" [disabled]="!valid">
+    Start
+  </button>
+</div>

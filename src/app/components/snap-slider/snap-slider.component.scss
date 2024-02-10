@@ -1,0 +1,20 @@
+:host::ng-deep {
+  .mat-accent .mat-slider-track-fill {
+    background-color: black;
+  }
+
+  .mat-slider-thumb-label {
+    background-color: black;
+  }
+
+  .mat-slider-thumb {
+    background-color: black;
+  }
+
+  .mat-slider-track-fill,
+  .mat-slider-wrapper,
+  .mat-slider-track-wrapper,
+  .mat-slider-track-background {
+    height: 5px !important;
+  }
+}

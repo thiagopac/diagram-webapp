@@ -1,0 +1,8 @@
+<button
+  mat-button
+  [ngClass]="buttonClass"
+  [class.spinner]="loading"
+  [disabled]="loading || disabled"
+>
+  {{ text }}
+</button>

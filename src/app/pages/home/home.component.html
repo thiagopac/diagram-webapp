@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Desafios abertos</mat-card-title>
+          <mat-card-subtitle
+            >{{ openInvites.length }} desafios</mat-card-subtitle
+          >
+        </mat-card-header>
+        <mat-card-content>
+          <mat-selection-list #shoes [multiple]="false">
+            <mat-list-option
+              *ngFor="let invite of openInvites"
+              [value]="invite.pairing_key"
+            >
+              <a
+                href="{{ window.location.origin }}{{ baseHref }}/join/{{
+                  invite.pairing_key
+                }}"
+                class="text-decoration-none text-dark"
+              >
+                [{{ invite.game.owner }}] -
+                {{ invite.pairing_key }}
+              </a>
+            </mat-list-option>
+          </mat-selection-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-3">
+      <form [formGroup]="fg">
+        <div>
+          <!-- <app-loading-button
+            buttonClass="btn btn-dark"
+            text="1 vs 1"
+            (click)="openDialog()"
+            [loading]="loading"
+            #myButton
+          ></app-loading-button> -->
+          <app-loading-button
+            buttonClass="btn btn-dark"
+            text="Team vs Team"
+            (click)="hostTeamGameIfValid()"
+            [loading]="loading"
+            #myButton
+          ></app-loading-button>
+          <app-loading-button
+            buttonClass="btn btn-dark"
+            text="Team vs Engine"
+            (click)="localGame()"
+          ></app-loading-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="err != ''">{{ err }}</div>

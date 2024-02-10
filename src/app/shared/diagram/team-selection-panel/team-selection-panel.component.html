@@ -1,0 +1,38 @@
+<h2>{{ team | titlecase }} team</h2>
+<button mat-button (click)="setTeam()">Set Team</button>
+<button mat-button (click)="addCPU()">Add CPU</button>
+
+<mat-accordion>
+  <mat-expansion-panel
+    *ngFor="let key of sortedKeys"
+    hideToggle
+    [disabled]="!teamDict[key].engineSettings"
+    (destroyed)="onDestroy()"
+  >
+    <mat-expansion-panel-header appPanelHeaderDisableEvents>
+      <mat-panel-title style="margin-top: auto; margin-bottom: auto">
+        <span [style.color]="teamDict[key].properties.color">{{
+          teamDict[key].name
+        }}</span>
+      </mat-panel-title>
+      <mat-panel-description style="align-items: center">
+        <button
+          mat-icon-button
+          [disabled]="!teamDict[key].engineSettings"
+          color="primary"
+          (click)="deleteCpu($event, key)"
+          aria-label="Delete player"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <app-editable-span
+          style="position: absolute; right: 10px"
+          [setNumber]="setSortNumberFns[key]"
+          [value]="teamDict[key].sortNumber"
+        ></app-editable-span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-player-config [playerId]="key"></app-player-config>
+  </mat-expansion-panel>
+</mat-accordion>
